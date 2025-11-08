@@ -20,5 +20,9 @@ ln -f -s $DOTDIR/gitconfig ~/.gitconfig
 ln -f -s $DOTDIR/tmux.conf ~/.tmux.conf
 ln -f -s $DOTDIR/tmux-completion.bash ~/.tmux-completion.bash
 
+# Ensure Neovim picks up the same config as Vim
+mkdir -p ~/.config/nvim
+ln -f -s $DOTDIR/vimrc ~/.config/nvim/init.vim
+
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 popd
