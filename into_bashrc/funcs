@@ -116,13 +116,13 @@ function jump-to-git-root {
   cd $_root_dir
 }
 
-
-function chkpt() {
-  pushd .
-  jump-to-git-root
-  git add .
-  git commit -m ${1-checkpoint}
-  popd
+chkpt () 
+{ 
+    pushd .;
+    jump-to-git-root;
+    git add .;
+    git commit -m "${1:-checkpoint}" --no-verify;
+    popd
 }
 
 function dssh () 
