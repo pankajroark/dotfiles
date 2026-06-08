@@ -37,6 +37,13 @@ update_prompt() {
 PROMPT_COMMAND=update_prompt
 export HISTCONTROL=ignorespace:erasedups
 export HISTIGNORE="ls:ps:history:pwd"
+
+# Lighten directory color (hard-to-read dark blue by default).
+# BSD/macOS ls (-G flag) reads LSCOLORS: 1st char pair = directory.
+#   default "exfxcxdxbxegedabagacad" -> "Ex..." makes dirs bold/bright blue.
+export LSCOLORS="Exfxcxdxbxegedabagacad"
+# GNU ls (--color) reads LS_COLORS instead; 01;94 = bold bright-blue.
+export LS_COLORS="di=01;94"
 shopt -s cmdhist
 
 if [ -f /etc/bash_completion ]; then
